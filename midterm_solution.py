@@ -1,3 +1,4 @@
+# DORM ROOM CHORE TRACKER 
 # Step 1: Get room monitor name
 while True:
     monitor_name = input("Room monitor name: ").strip()
@@ -159,3 +160,40 @@ while assignment <= 4:
     assignment += 1
 
 
+# Step 5: Calculate
+total = len(assigned_chores)
+
+if total > 0:
+    rate = (completed / total) * 100
+else:
+    rate = 0
+
+
+if rate == 100:
+    room_status = "ROOM IS SPOTLESS!"
+elif rate >= 50:
+    room_status = "ALMOST THERE!"
+else:
+    room_status = "NEEDS CATCHING UP!"
+
+
+# Step 6: Report
+print("\n=============================================")
+print("     ROOM " + room_number + " -- WEEKLY CHORE REPORT")
+print("=============================================")
+print("Room Monitor : " + monitor_name)
+print("---------------------------------------------")
+
+count = 1
+for chore in assigned_chores:
+    print("[" + str(count) + "] " + chore[0] + " [" + chore[1] + "]")
+    print("    Roommate : " + chore[2])
+    print("    Status   : " + chore[3])
+    print()
+    count += 1
+
+print("---------------------------------------------")
+print("Completed      : " + str(completed) + " out of " + str(total))
+print("Completion Rate: " + str(rate) + "%")
+print("Room Status    : " + room_status)
+print("=============================================")
